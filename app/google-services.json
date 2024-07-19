@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "581005014760",
+    "project_id": "objetivos-ddb59",
+    "storage_bucket": "objetivos-ddb59.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:581005014760:android:00c852f06c97a145b6bb5d",
+        "android_client_info": {
+          "package_name": "com.example.objetivospersonales"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVV3zLmla-EWkdWP06fVXya7_o7tJcCTg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name" translatable="false">Objetivos Personales</string>
+
+    <string name="title_name" translatable="false">Titulo del Objetivo</string>
+    <string name="title_description_objetive" translatable="false">Ingresar Descripción del Objetivo</string>
+    <string name="title_date_objetive" translatable="false">Ingresar Fecha Estimada</string>
+
+<!--    string btn-->
+    <string name="btn_save" translatable="false">Guardar</string>
+    <string name="btn_cancel" translatable="false">Cancelar</string>
+
+<!--    string hint-->
+    <string name="hint_title" translatable="false">Ingrese Objetivo</string>
+    <string name="hint_description" translatable="false">Descripción</string>
+    <string name="hint_date_objetive" translatable="false"> Fecha de Terminación</string>
+    <!-- Description -->
+    <string name="banner_description" translatable="false">Banner</string>
+    <string name="fab_content_desc" translatable="false">Plus</string>
+
+    <!--    only items strings-->
+    <string name="item_title" translatable="false">Title</string>
+    <string name="item_date" translatable="false">Date</string>
+    <string name="item_description" translatable="false">Description</string>
+
+
+
+</resources>
