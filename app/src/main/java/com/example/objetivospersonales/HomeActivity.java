@@ -4,6 +4,7 @@ import static android.content.ContentValues.TAG;
 
 import static java.security.AccessController.getContext;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
@@ -101,32 +102,24 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void getAllData(){
-        final CollectionReference collectionRef = db.collection("objetivos");
-        collectionRef.addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot snapshots,
-                                @Nullable FirebaseFirestoreException e) {
-                if (e != null) {
-                    Log.w(TAG, "Listen failed.", e);
-                    return;
-                }
-
-                if (snapshots != null && !snapshots.isEmpty()) {
-                    list.clear();
-                    for (QueryDocumentSnapshot document : snapshots) {
-                        dtObjectives objectives = document.toObject(dtObjectives.class);
-                        list.add(objectives);
-
-                        Log.d(TAG, document.getId() + " => " + document.getData());
+        db.collection("objetivos")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @SuppressLint("NotifyDataSetChanged")
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                dtObjectives objectives = document.toObject(dtObjectives.class);
+                                list.add(objectives);
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+                            }
+                            objectivesAdapter.notifyDataSetChanged();
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
                     }
-                    objectivesAdapter.notifyDataSetChanged();
-                } else {
-                    Log.d(TAG, "Current data: null");
-                }
-            }
-        });
-
-
+                });
 
     }
 

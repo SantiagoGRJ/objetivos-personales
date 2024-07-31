@@ -30,10 +30,10 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/objectivesList"
-            android:layout_margin="5dp"
             android:layout_width="match_parent"
-            android:layout_gravity="bottom"
-            android:layout_height="346dp" />
+            android:layout_height="700dp"
+            android:layout_gravity="top"
+            android:layout_margin="5dp" />
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
