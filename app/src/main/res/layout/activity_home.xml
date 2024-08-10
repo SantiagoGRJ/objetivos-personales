@@ -8,16 +8,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
-
-
-
-
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floating_action_button"
         android:layout_width="wrap_content"
@@ -27,15 +21,11 @@
         style="@style/Widget.MaterialComponents.FloatingActionButton"
         android:contentDescription="@string/fab_content_desc"
         app:srcCompat="@drawable/ic_add_24dp"/>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/objectivesList"
             android:layout_width="match_parent"
             android:layout_height="700dp"
             android:layout_gravity="top"
             android:layout_margin="5dp" />
-
-
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
 </LinearLayout>

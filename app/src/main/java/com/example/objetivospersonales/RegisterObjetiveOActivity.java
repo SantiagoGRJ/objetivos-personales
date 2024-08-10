@@ -1,5 +1,8 @@
 package com.example.objetivospersonales;
 
+import static com.example.objetivospersonales.R.layout.activity_register_objetive_oactivity;
+
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,7 +48,7 @@ public class RegisterObjetiveOActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_register_objetive_oactivity);
+        setContentView(activity_register_objetive_oactivity);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -112,7 +115,6 @@ public class RegisterObjetiveOActivity extends AppCompatActivity {
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
-
         // Create a DatePickerDialog
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 RegisterObjetiveOActivity.this,
@@ -121,21 +123,17 @@ public class RegisterObjetiveOActivity extends AppCompatActivity {
                     calendar.set(Calendar.YEAR, year1);
                     calendar.set(Calendar.MONTH, monthOfYear);
                     calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-
                     // Format the date and set it in the TextInputEditText
-                    String formattedDate = String.format("%02d/%02d/%04d", dayOfMonth, monthOfYear + 1, year1);
+                    @SuppressLint("DefaultLocale") String formattedDate =
+                            String.format("%02d/%02d/%04d", dayOfMonth, monthOfYear + 1, year1);
                     datePlanned.setText(formattedDate);
-
                 },
                 year, month, day);
-
         // Show the DatePickerDialog
         datePickerDialog.show();
     }
 
-//    private void showToast(String date){
-//        Toast.makeText(this, "Date: " + date , Toast.LENGTH_LONG).show();
-//    }
+
 
     private void backToHome(){
         finishAndRemoveTask();
@@ -150,7 +148,8 @@ public class RegisterObjetiveOActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                      Toast.makeText(RegisterObjetiveOActivity.this, "DocumentSnapshot added with ID: " + documentReference.getId(), Toast.LENGTH_SHORT).show();
+                      Toast.makeText(RegisterObjetiveOActivity.this, "DocumentSnapshot added with ID:"
+                              , Toast.LENGTH_SHORT).show();
                         cleanInputs();
                         backToHome();
                     }

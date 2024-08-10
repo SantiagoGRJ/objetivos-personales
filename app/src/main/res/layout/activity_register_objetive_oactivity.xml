@@ -36,7 +36,6 @@
             android:id="@+id/name_objetive"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -51,7 +50,6 @@
         android:hint="@string/hint_description"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:boxStrokeColor="?attr/colorPrimary">
-
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/description"
             android:layout_width="match_parent"
@@ -60,7 +58,6 @@
             android:lines="5"
             android:maxLines="5"
             android:textStyle="italic"
-
             />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,10 +71,8 @@
         android:textColorHint="#BDBDBD"
         android:hint="@string/hint_date_objetive"
         android:maxLines="1"
-
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:boxStrokeColor="?attr/colorPrimary">
-
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPlannedDate"
             android:layout_width="match_parent"
@@ -87,7 +82,6 @@
             android:inputType="date"
             android:maxLines="1"
             android:textStyle="italic"
-
             />
     </com.google.android.material.textfield.TextInputLayout>
 

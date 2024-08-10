@@ -75,11 +75,6 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView.setAdapter(objectivesAdapter);
         getAllData();
 
-
-
-
-
-
         btn_floating_action_button = findViewById(R.id.floating_action_button);
 
         btn_floating_action_button.setOnClickListener(new View.OnClickListener() {
@@ -120,7 +115,6 @@ public class HomeActivity extends AppCompatActivity {
                         }
                     }
                 });
-
     }
 
     public static class CustomItemDecoration extends RecyclerView.ItemDecoration {
