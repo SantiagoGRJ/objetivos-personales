@@ -33,6 +33,7 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -71,7 +72,7 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(new CustomItemDecoration(verticalSpaceHeight));
 
         list = new ArrayList<>();
-        objectivesAdapter = new ObjectivesAdapter(this, list);
+        objectivesAdapter = new ObjectivesAdapter(this, list,this);
         recyclerView.setAdapter(objectivesAdapter);
         getAllData();
 
@@ -98,6 +99,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public void getAllData(){
         db.collection("objetivos")
+                .orderBy("date", Query.Direction.DESCENDING)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @SuppressLint("NotifyDataSetChanged")
@@ -106,6 +108,7 @@ public class HomeActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 dtObjectives objectives = document.toObject(dtObjectives.class);
+                                objectives.setId(document.getId());
                                 list.add(objectives);
                                 Log.d(TAG, document.getId() + " => " + document.getData());
                             }
@@ -116,6 +119,8 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 });
     }
+
+
 
     public static class CustomItemDecoration extends RecyclerView.ItemDecoration {
         private final int verticalSpaceHeight;

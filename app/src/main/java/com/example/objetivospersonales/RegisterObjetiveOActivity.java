@@ -90,7 +90,8 @@ public class RegisterObjetiveOActivity extends AppCompatActivity {
                 String date = datePlanned.getText().toString();
                 //validate
                 if (isEmpty(name, description, date)) {
-                    Toast.makeText(RegisterObjetiveOActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterObjetiveOActivity.this,
+                            "Please fill all fields", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 //save
@@ -125,7 +126,7 @@ public class RegisterObjetiveOActivity extends AppCompatActivity {
                     calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                     // Format the date and set it in the TextInputEditText
                     @SuppressLint("DefaultLocale") String formattedDate =
-                            String.format("%02d/%02d/%04d", dayOfMonth, monthOfYear + 1, year1);
+                            String.format("%04d/%02d/%02d",year1 , monthOfYear + 1,dayOfMonth );
                     datePlanned.setText(formattedDate);
                 },
                 year, month, day);
@@ -148,7 +149,7 @@ public class RegisterObjetiveOActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                      Toast.makeText(RegisterObjetiveOActivity.this, "DocumentSnapshot added with ID:"
+                      Toast.makeText(RegisterObjetiveOActivity.this, "DocumentSnapshot added "
                               , Toast.LENGTH_SHORT).show();
                         cleanInputs();
                         backToHome();
